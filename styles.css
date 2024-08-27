@@ -1,0 +1,206 @@
+@import url("https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Archivo+Black&family=Dancing+Script&display=swap");
+
+:root {
+  --font-color: #fff;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  overflow: hidden;
+  font-family: "Archivo Black", sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #a30557;
+}
+
+#main-doc {
+  position: relative;
+  width: 500px;
+  height: 550px;
+  border-radius: 20px;
+  padding: 20px 30px;
+  /* 3D container */
+  box-shadow: 25px 25px 75px rgba(82, 18, 51, 0.5),
+    10px 10px 70px rgba(82, 18, 51, 0.25),
+    inset 7px 7px 11px rgba(82, 18, 51, 0.5),
+    inset 7px 7px 22px rgba(255, 255, 255, 0.2),
+    inset -7px -7px 16px rgba(82, 18, 51, 0.75);
+}
+
+#task-title {
+  position: relative;
+  width: 100%;
+  height: 40px;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+#task-title h2 {
+  font-size: 2.4rem;
+  color: var(--font-color);
+  font-family: "Dancing Script", cursive;
+  letter-spacing: 2.5px;
+}
+
+#task-title #clock {
+  position: absolute;
+  top: 24%;
+  right: 2%;
+  color: var(--font-color);
+  font-family: "Alfa Slab One", serif;
+  font-size: 1.4rem;
+}
+
+#task-input {
+  position: relative;
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+#task-input #tasksInput {
+  width: inherit;
+  padding: 15px 20px;
+  border: none;
+  outline: none;
+  border-radius: 18px;
+  /* putting shadow inside input box */
+  box-shadow: 5px 5px 7px rgba(0, 0, 0, 0.25),
+    inset 2px 2px 5px rgba(0, 0, 0, 0.5), inset 3px 3px 5px rgba(0, 0, 0, 0.7);
+  cursor: pointer;
+}
+
+#tasksInput::placeholder {
+  font-size: 1.1rem;
+  font-family: "Alfa Slab One", serif;
+  letter-spacing: 1.8px;
+}
+
+#clearAll {
+  width: 88%;
+  position: absolute;
+  bottom: 0;
+  padding: 24px 0;
+}
+
+.clear-btn {
+  position: relative;
+  left: 345px;
+  padding: 10px;
+  border-radius: 17px;
+  border: none;
+  outline: none;
+  pointer-events: none;
+  cursor: pointer;
+  background: #4d08a1;
+  opacity: 0.6;
+  font-size: 13px;
+  color: var(--font-color);
+  letter-spacing: 1.4px;
+  font-family: "Alfa Slab One", serif;
+  transition: transform 0.25s ease;
+}
+
+.clear-btn.active {
+  opacity: 0.9;
+  pointer-events: auto;
+}
+
+.clear-btn:active {
+  transform: scale(0.93);
+}
+
+.tasklists {
+  margin-top: 20px;
+  padding-left: 8px;
+}
+.tasklists.overflow {
+  overflow-y: auto;
+  max-height: 330px;
+}
+
+.tasklists li {
+  position: relative;
+  width: 80%;
+  /* height: 60px; */
+  display: flex;
+  justify-content: space-between;
+  list-style-type: none;
+  padding: 15px 15px;
+  box-shadow: 25px 25px 75px rgba(82, 18, 51, 0.5),
+    10px 10px 70px rgba(82, 18, 51, 0.25),
+    inset 7px 7px 11px rgba(82, 18, 51, 0.5),
+    inset 7px 7px 22px rgba(255, 255, 255, 0.2),
+    inset -7px -7px 16px rgba(82, 18, 51, 0.75);
+  border-radius: 18px;
+  margin-bottom: 8px;
+}
+.tasklists li i {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  background: #4d08a1;
+  right: -60px;
+  bottom: 8px;
+  border-radius: 50%;
+  padding-left: 20px;
+  box-shadow: 5px 5px 7px rgba(85, 45, 228, 0.25),
+    inset 2px 2px 5px rgba(85, 45, 228, 0.5),
+    inset -3px 3px 5px rgba(85, 45, 228, 0.5);
+
+  transition: transform 0.25s ease;
+  cursor: pointer;
+}
+
+.tasklists li i:active {
+  transform: scale(0.93);
+}
+
+.tasklists li i::before {
+  content: "";
+  position: absolute;
+  top: 13.5px;
+  right: 7px;
+  width: 15px;
+  height: 2px;
+  transform: rotate(45deg);
+  background-color: var(--font-color);
+}
+
+.tasklists li i::after {
+  content: "";
+  position: absolute;
+  top: 13.5px;
+  right: 7px;
+  width: 15px;
+  height: 2px;
+  transform: rotate(-45deg);
+  background-color: var(--font-color);
+}
+
+.tasklists li.done {
+  text-decoration: line-through;
+  background-color: #f7368a;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-thumb {
+  background-color: #4d08a1;
+  border-radius: 8px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #f7368a;
+}
+
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.5);
+}
